@@ -1,4 +1,5 @@
 import MyButton from './Button.vue';
+import { action } from "@storybook/addon-actions"
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
@@ -24,7 +25,12 @@ const Template = (args) => ({
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<my-button v-bind="args" />',
+  template: '<my-button v-bind="args" @click="onclick"/>',
+  methods: {
+    onclick() {
+      action("btnClick")
+    }
+  }
 });
 
 export const Primary = Template.bind({});

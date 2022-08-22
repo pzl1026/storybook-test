@@ -1,11 +1,10 @@
-// import MyButton from './Button.vue';
-import {Button as AButton} from 'ant-design-vue'
-import { action } from "@storybook/addon-actions"
+import TestForm from './demo/form';
+// import { action } from "@storybook/addon-actions"
 import 'ant-design-vue/lib/button/style/index.css';
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
-  component: AButton,
+  title: 'SC-UI/Form',
+  component: TestForm,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -22,16 +21,16 @@ export default {
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { AButton },
+  components: { TestForm },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<a-button  v-bind="args" @click="onclick">22222</a-button>',
+  template: '<test-form/>',
   methods: {
     onclick() {
-      action("btnClick")
+      // action("btnClick")
     }
   }
 });
